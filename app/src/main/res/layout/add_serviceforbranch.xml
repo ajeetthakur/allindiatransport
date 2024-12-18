@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+
+        android:id="@+id/topbg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginBottom="20dp"
+
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Service"
+                android:textColor="#FFF"
+                android:textSize="25dp" />
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+
+                android:background="@drawable/corner_btnredborder">
+
+                <TextView
+                    android:id="@+id/textservices"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/dropdown"
+                    android:gravity="center_vertical"
+                    android:hint="Service"
+                    android:padding="10dp"
+                    android:textColorHint="#999999"></TextView>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/lin_city_state"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_weight="10"
+                android:visibility="gone"
+                android:background="@color/colorAccent"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+
+                    android:background="@drawable/corner_btnredborder">
+
+                    <TextView
+                        android:id="@+id/txtfrom_state"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+
+                        android:background="@drawable/dropdown02"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:text="State"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="#999999"
+                        android:textSize="16.5dp">
+
+
+                    </TextView>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="5"
+                    android:background="@drawable/corner_btnredborder">
+
+                    <TextView
+                        android:id="@+id/txtfrom_city"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+
+                        android:background="@drawable/dropdown02"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="5dp"
+
+
+                        android:text="Cities"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="#999999"
+                        android:textSize="16.5dp">
+
+
+                    </TextView>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/citytextshow"
+                android:text="Selected City "
+                android:textColor="@android:color/white"
+                android:textColorHint="#999999"
+                android:textSize="16.5dp"
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_alignParentLeft="false"
+                    android:id="@+id/back"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Back"
+                    android:layout_marginRight="5dp"
+                    android:padding="10dp"
+                    android:textColor="@color/colorAccent"
+                    android:gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/corner_btnredborder" />
+
+                <TextView
+                    android:id="@+id/save"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Save"
+                    android:padding="10dp"
+                    android:textColor="@color/colorAccent"
+                    android:gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/corner_btnredborder" />
+
+            </LinearLayout>
+            <TextView
+                android:id="@+id/continue_text"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Continue"
+                android:padding="10dp"
+                android:textColor="@color/colorAccent"
+                android:gravity="center"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/corner_btnredborder" />
+
+            <TextView
+
+                android:id="@+id/viewlist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="View Saved Service"
+                android:padding="10dp"
+                android:textColor="#FFF"
+                android:gravity="center"
+                android:visibility="gone"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/corner_btnredbordernew" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_marginBottom="10dp"
+        android:id="@+id/topbg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff">
+        <ScrollView
+            android:scrollbars="none"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <TextView
+
+                android:visibility="gone"
+                android:id="@+id/text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Contact Us"
+                android:textColor="#333333"
+                android:textSize="25dp" />
+
+
+
+            <EditText
+                android:id="@+id/text_company_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/big_edittext"
+                android:paddingLeft="5dp"
+                android:hint="Company Name/Name"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="10dp"
+
+                android:imeOptions="actionNext"
+                android:inputType="textCapCharacters"
+                android:textSize="16.5dp"
+                android:textColor="@android:color/black"
+                android:textColorHint="#999999">
+
+
+            </EditText>
+            <EditText
+                android:id="@+id/text_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/big_edittext"
+                android:paddingLeft="5dp"
+                android:hint="Email ID"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="10dp"
+
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:textSize="16.5dp"
+                android:textColor="@android:color/black"
+                android:textColorHint="#999999">
+
+
+            </EditText>
+            <EditText
+                android:id="@+id/text_mobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/big_edittext"
+                android:paddingLeft="5dp"
+                android:hint="Mobie"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="10dp"
+
+                android:imeOptions="actionNext"
+                android:inputType="phone"
+                android:textSize="16.5dp"
+                android:textColor="@android:color/black"
+                android:textColorHint="#999999">
+
+
+            </EditText>
+
+
+
+
+            <EditText
+                android:layout_marginTop="10dp"
+                android:id="@+id/txtDesc"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/corner_btn"
+                android:gravity="left|top"
+                android:padding="10dp"
+                android:hint="Enter Description"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:maxLines="4"
+                android:paddingLeft="5dp"
+                android:singleLine="true"
+                android:textSize="15dp"
+                android:textColor="@android:color/black"
+                android:textColorHint="#999999">
+
+
+            </EditText>
+            <ImageButton
+                android:id="@+id/submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/submit" />
+        </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+</RelativeLayout>

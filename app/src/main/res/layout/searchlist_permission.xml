@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   android:background="#FFF"
+   >
+    <LinearLayout
+        android:id="@+id/lin_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/contact_person"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="5dp"
+            android:layout_centerVertical="true"
+            android:text="Contact \nPerson"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:textSize="10dp" />
+
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/mobile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="5dp"
+            android:layout_centerVertical="true"
+            android:text="Mobile"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:textSize="10dp" />
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="5dp"
+            android:layout_centerVertical="true"
+            android:text="State"
+            android:textColor="#000"
+            android:textStyle="bold"
+
+            android:textSize="10dp" />
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="5dp"
+            android:layout_centerVertical="true"
+            android:text="City"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:textSize="10dp" />
+        <TextView
+            android:id="@+id/detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textSize="10dp"
+            android:visibility="visible"
+            android:layout_centerVertical="true"
+            android:textAllCaps="true"
+            android:text="permissions"
+            android:padding="5dp"
+            android:layout_margin="10dp"
+            android:textColor="#d31f0f" />
+    </LinearLayout>
+    <ListView
+        android:layout_below="@+id/lin_main"
+        android:scrollbars="none"
+        android:id="@+id/listview"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+       />
+
+
+</RelativeLayout>

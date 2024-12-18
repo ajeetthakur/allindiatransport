@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+   >
+    <LinearLayout
+        android:id="@+id/upr_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_weight="12"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/addindialog"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="5dp"
+            android:layout_weight="5"
+            android:background="@drawable/corner_btnredborder"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Add"
+            android:textColor="#d31f0f" />
+
+
+    </LinearLayout>
+
+    <ListView
+android:layout_below="@+id/upr_layout"
+        android:id="@+id/completeList"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginBottom="20dp"></ListView>
+
+    <LinearLayout
+        android:layout_below="@+id/completeList"
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_weight="12"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/save"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="5dp"
+            android:layout_weight="5"
+            android:background="@drawable/corner_btnredborder"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Save"
+            android:textColor="#d31f0f" />
+
+        <TextView
+            android:id="@+id/declineButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="5dp"
+            android:layout_weight="5"
+            android:background="@drawable/corner_btnredborder"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Back"
+            android:textColor="#d31f0f" />
+    </LinearLayout>
+
+</RelativeLayout>

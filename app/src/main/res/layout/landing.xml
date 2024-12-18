@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_main">
+
+    <LinearLayout
+       android:layout_margin="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:layout_centerInParent="true"
+        android:orientation="vertical"
+       >
+
+<ImageView
+    android:layout_gravity="center_horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/tp_nagar"
+    />
+        <TextView
+            android:layout_marginTop="15dp"
+            android:id="@+id/text1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal"
+            android:text="Go beyond logistics,"
+            android:textColor="#d31f0f"
+            android:textSize="23.5dp" />
+
+        <TextView
+            android:id="@+id/text2"
+            android:textSize="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal"
+
+            android:text="make the world go round &amp; "
+            android:textColor="#333333" />
+
+        <TextView
+            android:id="@+id/text4"
+            android:textSize="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal"
+            android:text="revolution business"
+            android:textColor="#333333" />
+
+        <ImageButton
+            android:id="@+id/login_btn"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login_btn" />
+
+        <ImageButton
+            android:id="@+id/skip_btn"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/skip_btn" />
+
+        <TextView
+            android:layout_marginTop="25dp"
+            android:id="@+id/text3"
+            android:textSize="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:gravity="center_horizontal"
+            android:text="Don't have an account?"
+            android:textColor="#333333" />
+
+        <ImageButton
+            android:id="@+id/signup_btn"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/signup_btn" />
+
+    </LinearLayout>
+</RelativeLayout>

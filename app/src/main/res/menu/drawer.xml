@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navigation_item_dashboard"
+            android:checked="true"
+            android:icon="@drawable/dashboard"
+
+            android:title="Dashboard" />
+        <item
+            android:id="@+id/navigation_item_business_details"
+            android:icon="@drawable/business_details"
+            android:title="Business Details" />
+
+        <item
+            android:id="@+id/navigation_item_vendor"
+            android:icon="@drawable/ic_vendor"
+            android:title="Vendor" />
+        <item
+            android:id="@+id/own_vehicle"
+            android:icon="@drawable/own_vehicle"
+            android:title="Post Vehicle" />
+        <item
+            android:id="@+id/navigation_item_own_vehicle"
+            android:icon="@drawable/own_vehicle"
+            android:title="Post Goods" />
+        <item
+            android:id="@+id/navigation_item_contactus"
+            android:icon="@drawable/own_vehicle"
+            android:title="Contact Us" />
+        <item
+            android:id="@+id/navigation_item_notification"
+            android:icon="@drawable/ic_notifications_black_24dp"
+            android:title="Notifications" />
+        <item
+            android:id="@+id/navigation_item_Logout"
+            android:icon="@drawable/logout"
+            android:title="Logout" />
+
+
+
+
+    </group>
+
+
+</menu>

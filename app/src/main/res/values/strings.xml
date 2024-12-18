@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">TP Nagar</string>
+
+
+    <string-array name="nav_drawer_items">
+
+        <item>Dashboard</item>
+        <item>Business Details</item>
+        <item>Login Details</item>
+        <item>Services</item>
+
+        <item>Keyword</item>
+        <item>Branch</item>
+        <item>Sms Details</item>
+        <item>Own Vehicle</item>
+        <item>Logout</item>
+
+
+    </string-array>
+
+    <!-- Nav Drawer List Item Icons -->
+    <!-- Keep them in order as the titles are in -->
+    <array name="nav_drawer_icons">
+        <item>@drawable/dashboard</item>
+        <item>@drawable/business_details</item>
+
+        <item>@drawable/login_details</item>
+        <item>@drawable/services</item>
+        <item>@drawable/keyword</item>
+
+        <item>@drawable/branch</item>
+        <item>@drawable/sms_details</item>
+        <item>@drawable/own_vehicle</item>
+        <item>@drawable/logout</item>
+
+    </array>
+
+
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="nav_item_attachment">Attachment</string>
+    <string name="nav_item_images">Images</string>
+    <string name="nav_item_location">My Location</string>
+    <string name="nav_sub_menu">Sub Menu</string>
+    <string name="nav_sub_menu_item01">Sub Menu Item 1</string>
+    <string name="nav_sub_menu_item02">Sub Menu Item 2</string>
+    <string name="drawer_header_text">Drawer Header</string>
+    <string name="second_activity_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consectetur diam id aliquam scelerisque. Donec ultrices lacus vel dignissim pharetra. Vivamus pharetra augue quis rhoncus placerat. Sed ultricies at risus non cursus. Nam rutrum leo nec placerat consectetur. Vestibulum feugiat eleifend diam, nec interdum augue tincidunt sit amet. Praesent feugiat est auctor lacus consectetur, vitae pellentesque dolor laoreet.</string>
+    <string name="title_activity_second">SecondActivity</string>
+    <string name="notification_on">Notification On</string>
+    <string name="notification_off">Notification Off</string>
+    <string name="connect_info">Connect Info</string>
+    <string name="service">Service</string>
+    <string name="keywords">Keywords</string>
+    <string name="login_details">Login Details</string>
+    <string name="branch">Branch</string>
+
+</resources>

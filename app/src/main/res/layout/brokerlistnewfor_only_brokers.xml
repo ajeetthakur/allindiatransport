@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3F3F3">
+
+    <RelativeLayout
+
+        android:id="@+id/topbg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_bg02">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+
+                android:weightSum="12">
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3.5"
+                    android:background="@drawable/dropdown01"
+                    android:hint="City"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:paddingLeft="3dp"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="#999999"
+                    android:textSize="16.5dp">
+
+
+                </Spinner>
+
+
+                <AutoCompleteTextView
+                    android:id="@+id/autoCompleteTextView1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="7"
+                    android:background="@drawable/dropdown01"
+                    android:completionThreshold="1"
+                    android:ems="10"
+                    android:hint="Service"
+
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="10dp"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="#999999"
+                    android:textSize="16.5dp"></AutoCompleteTextView>
+
+                <ImageButton
+                    android:id="@+id/search"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1.5"
+                    android:background="@drawable/search_btn" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+
+        android:id="@+id/upr_lin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/topbg"
+        android:background="#FFFFFF"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sort"
+            android:padding="10dp"
+            android:textColor="#000"
+            android:textSize="13dp"
+
+            />
+
+        <TextView
+            android:id="@+id/normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="#E2E2E2"
+            android:text=" Normal "
+            android:padding="10dp"
+            android:textColor="#000"
+            android:textSize="13dp" />
+
+        <ImageView
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="-10dp"
+            android:src="@drawable/icon_arrow" />
+
+        <TextView
+            android:id="@+id/rating_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#E2E2E2"
+            android:text=" Rating "
+            android:padding="10dp"
+            android:textColor="#000"
+            android:textSize="13dp" />
+        <ImageView
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="-10dp"
+            android:src="@drawable/icon_arrow" />
+
+        <TextView
+            android:id="@+id/vendor_text"
+
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:background="#E2E2E2"
+            android:padding="10dp"
+            android:text=" Vendor "
+
+            android:textColor="#000"
+            android:textSize="13dp" />
+        <ImageView
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="-10dp"
+            android:src="@drawable/icon_arrow" />
+
+    </LinearLayout>
+    <TextView
+
+        android:layout_margin="10dp"
+        android:background="@android:color/transparent"
+        android:textColor="@color/black"
+        android:layout_below="@+id/upr_lin"
+        android:id="@+id/city_service_info"
+        android:layout_width="match_parent"
+        android:textSize="12dp"
+        android:layout_height="wrap_content" />
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/city_service_info"
+        android:layout_marginTop="10dp"
+        android:background="#F3F3F3"
+        android:divider="@null"
+        android:scrollbars="none" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+
+        android:layout_alignParentRight="true"
+        android:layout_margin="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="15dp"
+        android:src="@drawable/search_icon" />
+
+</RelativeLayout>

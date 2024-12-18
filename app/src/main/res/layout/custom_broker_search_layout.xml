@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+   android:background="#F9F9F9"
+
+    >
+
+    <RelativeLayout
+        android:background="@drawable/corner_bglistitem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_weight="7.5"
+        android:id="@+id/main_line"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/company_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Company Name"
+            android:textColor="#333333"
+            android:textSize="16.5dp" />
+
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RatingBar
+                android:id="@+id/ratingbar"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:theme="@style/RatingBar"
+                android:stepSize="0.5"
+                android:numStars="5"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                android:id="@+id/rate_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+
+                android:paddingLeft="5dp"
+                android:text="3.5"
+                android:textColor="#999999"
+                android:textSize="12dp" />
+
+        </LinearLayout>
+
+
+
+        <RelativeLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/text_address"
+                android:layout_width="wrap_content"
+                android:drawablePadding="5dp"
+                android:layout_height="wrap_content"
+                android:singleLine="false"
+               android:drawableLeft="@drawable/address"
+                android:text="Addressa"
+                android:paddingLeft="5dp"
+
+                android:layout_marginBottom="10dp"
+                android:textColor="#999999"
+                android:textSize="12dp" />
+
+        </RelativeLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_alignParentLeft="true"
+                android:id="@+id/text_call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:textSize="10dp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/corner_btnredborder"
+                android:textStyle="bold"
+                android:padding="5dp"
+                android:drawablePadding="2dp"
+                android:drawableLeft="@drawable/phone"
+                android:layout_margin="5dp"
+                android:text="Call Now"
+                android:textColor="#000" />
+
+            <TextView
+                android:layout_toRightOf="@+id/text_call"
+                android:id="@+id/more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:textSize="10dp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/corner_btnredborder"
+                android:textStyle="bold"
+                android:padding="5dp"
+                android:drawablePadding="2dp"
+                android:drawableLeft="@drawable/phone"
+                android:layout_margin="5dp"
+                android:text="More"
+                android:textColor="#000" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+android:visibility="gone"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="2.4"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/sms"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/sms"
+                android:layout_width="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/email"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/email_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+<RelativeLayout
+    android:background="#C9C9C7"
+    android:layout_width="0.6dp"
+    android:layout_weight="0"
+    android:gravity="center"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_height="match_parent"></RelativeLayout>
+
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="2.4"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/detail"
+                android:text="Detail"
+                android:layout_width="70dp"
+                android:textColor="@color/black"
+                android:paddingTop="6dp"
+                android:layout_marginTop="7dp"
+                android:paddingBottom="6dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:textSize="11dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:visibility="visible"
+                android:background="@drawable/common_button"
+                android:layout_marginBottom="5dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/text_vendor"
+                android:text="Add Vendor"
+                android:layout_width="70dp"
+                android:textColor="@color/colorPrimary"
+                android:paddingTop="6dp"
+                android:layout_marginTop="7dp"
+                android:paddingBottom="6dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:textSize="11dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:visibility="visible"
+                android:background="@drawable/common_button"
+                android:layout_marginBottom="5dp"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/verified"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/verified"
+                android:visibility="visible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
+</RelativeLayout>

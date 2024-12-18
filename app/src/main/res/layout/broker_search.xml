@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+
+        android:id="@+id/topbg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_bg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+
+
+    <ToggleButton
+        android:id="@+id/switchButton"
+        android:layout_width="wrap_content"
+        android:layout_centerInParent="true"
+        android:checked="false"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Search By Name  "
+        android:paddingLeft="10dp"
+        android:textColor="#000"
+        android:textStyle="bold"
+        android:textSize="10dp"
+        android:textOff="Search By Name Off"
+        android:textOn="Search By Name On"
+        android:drawablePadding="5dp"
+        />
+
+                <EditText
+                    android:id="@+id/edit_search_text"
+                    android:visibility="gone"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="10dp"
+                    android:padding="5dp"
+                    android:hint="search by Name"
+
+                    android:background="@drawable/corner_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/text_brokerservice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/dropdown"
+                android:gravity="center_vertical"
+                android:text="Broker Service"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#000"
+                android:textColorHint="#999999"></TextView>
+            <AutoCompleteTextView
+
+                android:id="@+id/autoCompleteTextView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:visibility="gone"
+                android:paddingRight="5dp"
+                android:drawablePadding="10dp"
+                android:drawableRight="@drawable/dropdown_icon"
+                android:background="@drawable/big_edittext"
+                android:ems="10"
+                android:paddingLeft="10dp"
+                android:hint="Service"
+                android:textColorHint="#999999"></AutoCompleteTextView>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_weight="10"
+
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtfrom_state"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="5"
+                    android:background="@drawable/dropdown01"
+                    android:gravity="center_vertical"
+                    android:text="From State"
+                    android:paddingLeft="5dp"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="#999999"
+                    android:textSize="16.5dp">
+
+
+                </TextView>
+
+
+                <TextView
+                    android:id="@+id/txtfrom_city"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="5"
+                    android:background="@drawable/dropdown01"
+                    android:gravity="center_vertical"
+                    android:text="From City"
+
+                    android:paddingLeft="5dp"
+                    android:paddingRight="10dp"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="#999999"
+                    android:textSize="16.5dp">
+
+
+                </TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_weight="10"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/txtto_state"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:background="@drawable/small_edittext"
+                    android:gravity="center_vertical"
+                    android:hint="To State"
+                    android:inputType="text"
+                    android:paddingLeft="5dp"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="#999999"
+                    android:textSize="16.5dp">
+                </TextView>
+                <TextView
+                    android:id="@+id/txtto_city"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="5"
+                    android:background="@drawable/dropdown01"
+                    android:gravity="center_vertical"
+                    android:hint="To City"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="10dp"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="#999999"
+                    android:textSize="16.5dp">
+                </TextView>
+            </LinearLayout>
+            <ImageButton
+                android:id="@+id/search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/search" />
+        </LinearLayout>
+    </RelativeLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+
+        android:layout_alignParentRight="true"
+        android:layout_margin="15dp"
+
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="15dp"
+        android:src="@drawable/close_white"
+        />
+</RelativeLayout>

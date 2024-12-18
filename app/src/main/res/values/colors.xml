@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#d31f0f</color>
+    <color name="colorPrimaryDark">#d31f0f</color>
+    <color name="colorAccent">#d31f0f</color>
+    <color name="myPrimaryColor">#3F51B5</color>
+    <color name="myPrimaryDarkColor">#3F51B5</color>
+    <color name="myAccentColor">#3F51B5</color>
+    <color name="myDrawerBackground">#F2F2F2</color>
+    <color name="myWindowBackground">#DEDEDE</color>
+    <color name="myTextPrimaryColor">#FFFFFF</color>
+    <color name="myNavigationColor">#000000</color>
+    <color name="hintColor">#333333</color>
+    <color name="hintColor_2">#D3D3D3</color>
+    <color name="black">#000000</color>
+    <color name="black_half">#60000000</color>
+    <color name="lineSeparatorColor">#777464</color>
+    <color name="selected_gray">#ffdbdbdb</color>
+    <color name="colorLowWhite">#AAA7A5</color>
+    <color name="line">#F1F1F1</color>
+    <color name="holo_red_dark">#F7581A</color>
+    <color name="holo_gray">#949393</color>
+    <color name="transparent">#00000000</color>
+    <color name="orange">#FC6E0A</color>
+    <color name="cream_dark">#B1BCBE</color>
+    <color name="cream_milky">#D9D9D9</color>
+</resources>

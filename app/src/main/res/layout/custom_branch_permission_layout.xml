@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/rel_main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+
+    >
+
+
+    <LinearLayout
+        android:weightSum="5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+       >
+
+
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/contact_person"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="5dp"
+            android:layout_gravity="center_vertical"
+            android:text="Service Name"
+            android:textColor="#333333"
+            android:textSize="10dp" />
+
+        <TextView
+            android:layout_centerVertical="true"
+            android:layout_weight="1"
+            android:id="@+id/mobile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="5dp"
+            android:layout_gravity="left|center_vertical"
+            android:gravity="left"
+            android:text="Service Name"
+            android:textColor="#333333"
+            android:textSize="10dp" />
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/state"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="left|center_vertical"
+            android:paddingLeft="5dp"
+            android:layout_centerVertical="true"
+            android:text="Service Name"
+            android:textColor="#333333"
+            android:textStyle="bold"
+            android:textSize="10dp" />
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/city"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="left|center_vertical"
+            android:paddingLeft="5dp"
+            android:layout_centerVertical="true"
+            android:text="Service Name"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:textSize="10dp" />
+
+
+
+<ImageView
+    android:layout_weight="1"
+    android:id="@+id/settingImage"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:textSize="8dp"
+    android:src="@drawable/ic_check_box_outline_blank_black_24dp"
+    android:layout_centerVertical="true"
+    android:gravity="center"
+    android:layout_marginRight="5dp"
+    />
+
+
+    </LinearLayout>
+</RelativeLayout>

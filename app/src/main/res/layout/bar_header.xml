@@ -1,0 +1,42 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bar_header_imoto"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="@drawable/top_bg02"
+    >
+
+    <!--android:background="#212323"-->
+    <RelativeLayout
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/tp_nagar01"
+            />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:id="@+id/left_nav_menu">
+        <ImageView
+            android:id="@+id/menu_icon"
+
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/menu_icon"
+            />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

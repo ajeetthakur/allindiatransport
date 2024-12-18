@@ -1,0 +1,122 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_left_list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeebeb">
+
+
+<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+    android:background="@color/background_floating_material_dark"
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:id="@+id/linmain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:id="@+id/userProfileContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:background="#d31f0f"
+                android:visibility="visible">
+
+
+                <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/userProfileImage"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/img_profile_male"
+                    app:civ_border_color="#FFF"
+                    app:civ_border_width="1dp"
+                    app:civ_shadow="true"
+                    app:civ_shadow_color="@android:color/darker_gray"
+                    app:civ_shadow_radius="1" />
+
+
+                <TextView
+                    android:id="@+id/compnay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/userProfileImage"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="3dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:clickable="true"
+                    android:singleLine="true"
+                    android:text="Hello"
+                    android:textColor="@color/hintColor"
+                    android:textSize="18dp" />
+
+                <TextView
+
+                    android:id="@+id/txtemail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/compnay"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:clickable="true"
+                    android:layout_centerHorizontal="true"
+
+                    android:singleLine="true"
+                    android:text="email"
+                    android:textColor="@color/hintColor"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/txtphone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtemail"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="1dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:clickable="true"
+                    android:singleLine="true"
+                    android:text="phone"
+                    android:textSize="14dp"
+                    />
+            </RelativeLayout>
+
+
+
+
+
+            <LinearLayout
+
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="2dp"
+                android:background="#eeebeb">
+
+
+                <ListView
+                    android:id="@+id/list_slidermenu"
+                    android:layout_width="240dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="start"
+                    android:background="@android:color/transparent"
+                    android:choiceMode="singleChoice"
+                    android:dividerHeight="0dp"
+                     />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

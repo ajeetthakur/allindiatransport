@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:background="#F3F3F3"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+        <TextView
+            android:id="@+id/contact_person"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Company_Name"
+            android:textStyle="bold"
+
+            android:textColor="#333333"
+            android:textSize="13dp" />
+        <LinearLayout
+            android:id="@+id/lin_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RatingBar
+                android:id="@+id/ratingbar"
+                android:rating="3"
+                android:stepSize="0.5"
+                android:numStars="5"
+                android:clickable="false"
+                style="?android:attr/ratingBarStyle"
+                android:theme="@style/RatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                android:id="@+id/rate_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+
+                android:paddingLeft="5dp"
+                android:text="3.5"
+                android:textColor="#999999"
+                android:textSize="12dp" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/text_call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:drawablePadding="5dp"
+                android:layout_centerVertical="true"
+                android:paddingLeft="5dp"
+                android:drawableLeft="@drawable/phone"
+                android:text="number"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textSize="14dp" />
+
+
+            <TextView
+                android:id="@+id/more"
+                android:layout_marginLeft="5dp"
+                android:text="More"
+                android:padding="3dp"
+                android:textSize="14dp"
+                android:layout_centerVertical="true"
+                android:textColor="@color/colorAccent"
+                android:layout_toRightOf="@+id/text_call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/text_call_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:drawablePadding="5dp"
+            android:layout_centerVertical="true"
+            android:paddingLeft="5dp"
+            android:drawableLeft="@drawable/phone"
+            android:text="number"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:textSize="14dp" />
+
+
+
+
+
+        <RelativeLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/text_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/address"
+                android:drawablePadding="5dp"
+                android:maxLines="2"
+                android:paddingLeft="5dp"
+                android:singleLine="true"
+                android:text=""
+                android:textColor="#999999"
+                android:textSize="14dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/text_mail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/mail"
+                android:drawablePadding="5dp"
+                android:maxLines="2"
+                android:paddingLeft="5dp"
+                android:singleLine="true"
+                android:text=""
+                android:textColor="#999999"
+                android:textSize="14dp" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/text_website"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/website"
+                android:drawablePadding="5dp"
+                android:maxLines="2"
+                android:paddingLeft="5dp"
+
+                android:singleLine="true"
+                android:text=""
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="14dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="5dp"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/text_discrp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:maxLines="4"
+
+                android:paddingLeft="5dp"
+                android:singleLine="true"
+
+                android:text=""
+                android:textColor="#999999"
+                android:textSize="12dp" />
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+
+                android:id="@+id/view_loc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:textSize="10dp"
+
+                android:layout_centerVertical="true"
+                android:background="@drawable/corner_btnredborder"
+                android:textStyle="bold"
+                android:padding="5dp"
+                android:layout_margin="5dp"
+                android:text="View Location"
+                android:textColor="#d31f0f" />
+            <TextView
+
+                android:id="@+id/enquiry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10dp"
+
+                android:layout_centerVertical="true"
+                android:background="@drawable/corner_btnredborder"
+                android:textStyle="bold"
+                android:padding="5dp"
+                android:layout_margin="5dp"
+                android:text="ENQUIRY"
+                android:textColor="#d31f0f" />
+            <TextView
+
+                android:id="@+id/branches"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10dp"
+
+                android:layout_centerVertical="true"
+                android:background="@drawable/corner_btnredborder"
+                android:textStyle="bold"
+                android:padding="5dp"
+                android:layout_margin="5dp"
+                android:text="BRANCHES"
+                android:textColor="#d31f0f" />
+
+            <TextView
+
+                android:id="@+id/vendor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="5dp"
+                android:background="@drawable/corner_btnredborder"
+                android:padding="5dp"
+                android:text="Show Vendor"
+                android:textColor="#d31f0f"
+                android:textSize="10dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

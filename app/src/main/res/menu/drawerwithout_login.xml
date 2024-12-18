@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navigation_item_dashboard"
+            android:checked="true"
+            android:icon="@drawable/dashboard"
+
+            android:title="Dashboard" />
+        <item
+            android:id="@+id/navigation_item_business_details"
+            android:icon="@drawable/login_details"
+            android:title="Login" />
+        <item
+            android:id="@+id/navigation_item_login_details"
+            android:icon="@drawable/login_details"
+            android:title="Register" />
+        <item
+            android:id="@+id/navigation_item_services"
+            android:icon="@drawable/services"
+            android:title="About Us" />
+
+    </group>
+
+
+</menu>

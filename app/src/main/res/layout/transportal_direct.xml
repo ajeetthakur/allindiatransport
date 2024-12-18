@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+  >
+    <RelativeLayout
+        android:id="@+id/topbg"
+        android:visibility="gone"
+        android:background="@drawable/top_bg02"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+
+                android:weightSum="12"
+                >
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/dropdown01"
+                    android:paddingLeft="3dp"
+                    android:hint="City"
+                    android:layout_weight="3.5"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textSize="16.5dp"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="#999999">
+
+
+                </Spinner>
+
+                <RelativeLayout
+                    android:background="@drawable/small_edittext"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="7"
+                    android:layout_width="0dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="wrap_content">
+
+
+
+
+                    <AutoCompleteTextView
+
+                        android:id="@+id/autoCompleteTextView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:paddingLeft="3dp"
+                        android:hint="Service"
+                        android:imeOptions="actionDone"
+                        android:layout_centerVertical="true"
+                        android:inputType="text"
+                        android:textSize="16.5dp"
+                        android:layout_marginRight="23dp"
+                        android:completionThreshold="1"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="#999999"
+                        android:ems="10" >
+                    </AutoCompleteTextView>
+                    <ImageView
+                        android:id="@+id/dropdown"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/dropdown_icon"
+                        android:layout_width="25dp"
+                        android:padding="2dp"
+
+                        android:layout_marginRight="5dp"
+                        android:layout_height="25dp" />
+                </RelativeLayout>
+                <ImageButton
+                    android:id="@+id/search"
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+
+                    android:background="@drawable/search_btn" />
+            </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>
+    <ScrollView
+        android:layout_below="@+id/topbg"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="15dp"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+        android:gravity="center"
+        android:layout_gravity="center"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:layout_weight="1"
+            android:id="@+id/air_corgo"
+            android:layout_width="0dp"
+            android:layout_height="140dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/air_corgo"/>
+            <ImageView
+                android:layout_weight="1"
+                android:id="@+id/car_carriers"
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/car_carriers"/>
+    </LinearLayout>
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:id="@+id/craner"
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:background="@drawable/craner"/>
+            <ImageView
+                android:id="@+id/insurance_companies"
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:background="@drawable/insurance_companies"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:id="@+id/manufacturers_and_suppliers"
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:background="@drawable/manufacturers_and_suppliers"/>
+            <ImageView
+                android:id="@+id/packers_movers"
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:background="@drawable/packers_movers"/>
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/refrigerated_container"
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:background="@drawable/refrigerated_container"/>
+            <ImageView
+                android:id="@+id/sea_cargo"
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:background="@drawable/sea_cargo"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/tipper_dumper"
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:background="@drawable/tipper_dumper"/>
+            <ImageView
+                android:id="@+id/trailer_transport_company"
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:background="@drawable/trailer_transport_company"/>
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:id="@+id/transport_contractor"
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:background="@drawable/transport_contractor"/>
+            <ImageView
+                android:id="@+id/truck_sales"
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:background="@drawable/truck_sales"/>
+        </LinearLayout>
+
+
+
+
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/tyres_suppliers"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_weight="1"
+                android:layout_margin="10dp"
+                android:background="@drawable/tyres_suppliers"/>
+            <ImageView
+                android:id="@+id/warehouse"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_weight="1"
+                android:layout_margin="10dp"
+                android:background="@drawable/warehouse"/>
+        </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
