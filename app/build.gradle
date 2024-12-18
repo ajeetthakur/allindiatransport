@@ -13,7 +13,7 @@ android {
     defaultConfig {
         applicationId "com.tpnagar"
         minSdkVersion 24
-        targetSdkVersion 33
+        targetSdkVersion 34
         versionCode 39
         versionName "4.3"
         multiDexEnabled=true
