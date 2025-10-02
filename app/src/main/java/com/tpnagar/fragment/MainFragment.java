@@ -1005,7 +1005,7 @@ String StatusValue=response.getString("StatusValue");
                         TextView comp_name=(TextView) getActivity().findViewById(R.id.comp_name) ;
                         prefs = getActivity().getSharedPreferences("com.tpnagar", MODE_PRIVATE);
 
-                        comp_name.setText(prefs.getString("Company_Name",""));
+//                        comp_name.setText(prefs.getString("Company_Name",""));
                    /*    String myString=prefs.getString("Company_Name", "");
                         String upperString = myString.substring(0,1).toUpperCase() + myString.substring(1);
 

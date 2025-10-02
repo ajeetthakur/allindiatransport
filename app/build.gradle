@@ -1,22 +1,21 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.firebase.crashlytics'
+apply plugin: 'com.google.gms.google-services'
 
 android {
-
     lintOptions {
         checkReleaseBuilds false
-        // Or, if you prefer, you can continue to check for errors in release builds,
-        // but continue the build even when errors are found:
         abortOnError false
     }
-    compileSdkVersion 34
-   // buildToolsVersion '27.0.3'
-    //added jks
+    compileSdk 35
+
     defaultConfig {
+        namespace "com.tpnagar"
         applicationId "com.tpnagar"
-        minSdkVersion 24
-        targetSdkVersion 34
-        versionCode 39
-        versionName "4.3"
+        minSdk 24
+        targetSdk 34
+        versionCode 41
+        versionName "4.5"
         multiDexEnabled=true
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
@@ -27,16 +26,18 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+
     androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+
     implementation 'com.mcxiaoke.volley:library:1.0.19'
     implementation 'com.mikhaellopez:circularimageview:3.0.2'
     implementation 'com.google.android.material:material:1.0.0'
@@ -46,14 +47,14 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.0.0'
     implementation 'androidx.multidex:multidex:2.0.0'
     implementation 'com.squareup.picasso:picasso:2.5.2'
-    //implementation 'com.google.firebase:firebase-messaging:17.4.0'
-    //implementation 'com.google.android.gms:play-services:16.0.1'
-  //  implementation 'com.google.android.gms:play-services:12.0.1'
     implementation 'com.google.android.gms:play-services-analytics:18.0.2'
     implementation 'com.google.firebase:firebase-messaging:23.1.2'
     implementation 'com.google.android.gms:play-services-maps:17.0.1'
     implementation 'com.google.android.gms:play-services-location:18.0.0'
-
     implementation "me.leolin:ShortcutBadger:1.1.22@aar"
+
+    // ✅ Firebase Crashlytics (with BOM for version alignment)
+    implementation platform('com.google.firebase:firebase-bom:33.3.0')
+    implementation 'com.google.firebase:firebase-crashlytics'
+   // implementation 'com.google.firebase:firebase-analytics'
 }
-apply plugin: 'com.google.gms.google-services'
