@@ -23,6 +23,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -87,7 +88,11 @@ public class MainActivityWithoutLogin extends AppCompatActivity implements Adapt
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_witoutlogin);
-
+        try {
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
+                    WindowManager.LayoutParams.FLAG_SECURE);
+        } catch (Exception e) {
+        }
         cd=new ConnectionDetector(this);
         RelativeLayout   topbg11=(RelativeLayout) findViewById(topbg) ;
 

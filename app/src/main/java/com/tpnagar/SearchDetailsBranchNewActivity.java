@@ -20,6 +20,7 @@ import android.text.TextWatcher;
 import android.text.style.UnderlineSpan;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -89,7 +90,11 @@ public class SearchDetailsBranchNewActivity extends FragmentActivity implements 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.brokers_search_details);
-
+        try {
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
+                    WindowManager.LayoutParams.FLAG_SECURE);
+        } catch (Exception e) {
+        }
         id=getIntent().getIntExtra("id",0);
         searchCompanyWrapper= DataManager.getInstance().getBranchWrapperlist().get(id);
 

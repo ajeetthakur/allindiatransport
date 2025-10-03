@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -35,6 +36,11 @@ public class UpdateMobileFromregistrationActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_mobilefromreg);
+        try {
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
+                    WindowManager.LayoutParams.FLAG_SECURE);
+        } catch (Exception e) {
+        }
         cd = new ConnectionDetector(this);
 
         prefs = getSharedPreferences("com.tpnagar", MODE_PRIVATE);

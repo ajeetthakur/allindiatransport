@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.fragment.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -39,6 +40,11 @@ public class BranchListForDetailsActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.branch_view_newlist);
+        try {
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
+                    WindowManager.LayoutParams.FLAG_SECURE);
+        } catch (Exception e) {
+        }
         initXmlViews();
     }
 

@@ -7,16 +7,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.text.Editable;
 import android.text.Html;
 import android.text.TextWatcher;
@@ -35,12 +25,23 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.tpnagar.AppController;
 import com.tpnagar.BaseContainerFragment;
 import com.tpnagar.ConnectionDetector;
@@ -79,45 +80,52 @@ import me.leolin.shortcutbadger.ShortcutBadger;
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private DrawerLayout mDrawerLayout;
-    TextView txtemail,Phone;
+    TextView txtemail, Phone;
     SharedPreferences prefs = null;
-RelativeLayout topbg;
+    RelativeLayout topbg;
     ConnectionDetector cd;
     MyReceiver myReceiver;
     IntentFilter notification1;
     private boolean rootViewId;
     ImageButton search;
-    String[] services,cityStringArray;
-    CharSequence[]  serviceItem,cityItem;
+    String[] services, cityStringArray;
+    CharSequence[] serviceItem, cityItem;
     ArrayList<String> city = new ArrayList<String>();
-    ArrayList<String> cityid= new ArrayList<String>();
+    ArrayList<String> cityid = new ArrayList<String>();
     ArrayList<String> servicesaStrings = new ArrayList<String>();
-    String cityidForLoc="127";
-    ImageView dropdown,dropdown_city;
-    AutoCompleteTextView  actv,spinner_autocompleCity;
+    String cityidForLoc = "127";
+    ImageView dropdown, dropdown_city;
+    AutoCompleteTextView actv, spinner_autocompleCity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_final);
+      try {
+          getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
+                  WindowManager.LayoutParams.FLAG_SECURE);
+      } catch (Exception e) {
+      }
+
         cd = new ConnectionDetector(this);
 
-          txtemail=(TextView) findViewById(R.id.txtemail) ;
-        Phone=(TextView) findViewById(R.id.Phone) ;
+        txtemail = (TextView) findViewById(R.id.txtemail);
+        Phone = (TextView) findViewById(R.id.Phone);
         prefs = getSharedPreferences("com.tpnagar", MODE_PRIVATE);
-        topbg=(RelativeLayout) findViewById(R.id.topbg) ;
+        topbg = (RelativeLayout) findViewById(R.id.topbg);
 
         topbg.setVisibility(View.VISIBLE);
 
-        dropdown=(ImageView) findViewById(R.id.dropdown);
-        dropdown_city=(ImageView) findViewById(R.id.dropdown_city);
-        search=(ImageButton) findViewById(R.id.search);
+        dropdown = (ImageView) findViewById(R.id.dropdown);
+        dropdown_city = (ImageView) findViewById(R.id.dropdown_city);
+        search = (ImageButton) findViewById(R.id.search);
 
-          actv = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView1);
+        actv = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView1);
         actv.clearFocus();
 
         View view = this.getCurrentFocus();
         if (view != null) {
-            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
         spinner_autocompleCity = (AutoCompleteTextView) findViewById(R.id.spinner_autocompleCity);
@@ -126,7 +134,7 @@ RelativeLayout topbg;
             @Override
             public void onClick(View v) {
 
-                if(spinner_autocompleCity.getText().length()>0){
+                if (spinner_autocompleCity.getText().length() > 0) {
                     spinner_autocompleCity.setText("");
                 }
 
@@ -138,49 +146,47 @@ RelativeLayout topbg;
 
 
                 Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.frame_container);
-                Log.e("Prem PP", "find the current fragment" +currentFragment.getClass().getSimpleName());
-                if(currentFragment.getClass().getSimpleName().equalsIgnoreCase("CompanydetailsbypostFragment") ){
+                Log.e("Prem PP", "find the current fragment" + currentFragment.getClass().getSimpleName());
+                if (currentFragment.getClass().getSimpleName().equalsIgnoreCase("CompanydetailsbypostFragment")) {
                     onBackPressed();
                     onBackPressed();
                 }
 
-                if(actv.getText().toString()!=null){
+                if (actv.getText().toString() != null) {
 
 
-                    if(actv.getText().toString().length()>3){
+                    if (actv.getText().toString().length() > 3) {
 
-                        String  SearchText="";
-                        String  Location="";
+                        String SearchText = "";
+                        String Location = "";
 
 
-
-                        if(actv.getText()==null){
-                            SearchText="";
-                        }else {
-                            SearchText=actv.getText().toString();
-
-                        }
-                        Location=spinner_autocompleCity.getText().toString();
-                        for (int i = 0; i <cityStringArray.length ; i++) {
-
-                            if(cityStringArray[i].equalsIgnoreCase(Location))
-                                cityidForLoc=cityid.get(i);
+                        if (actv.getText() == null) {
+                            SearchText = "";
+                        } else {
+                            SearchText = actv.getText().toString();
 
                         }
-                        Bundle bundle=new Bundle();
-                        bundle.putString("Location",Location);
-                        bundle.putString("SearchText",SearchText);
-                        bundle.putInt("spinnerId",0);
+                        Location = spinner_autocompleCity.getText().toString();
+                        for (int i = 0; i < cityStringArray.length; i++) {
+
+                            if (cityStringArray[i].equalsIgnoreCase(Location))
+                                cityidForLoc = cityid.get(i);
+
+                        }
+                        Bundle bundle = new Bundle();
+                        bundle.putString("Location", Location);
+                        bundle.putString("SearchText", SearchText);
+                        bundle.putInt("spinnerId", 0);
 
 
-
-                        SearchListFragment searchListFragment=new SearchListFragment();
+                        SearchListFragment searchListFragment = new SearchListFragment();
                         searchListFragment.setArguments(bundle);
 
 
                         replaceFragmentTask(searchListFragment);
 
-                    }else{
+                    } else {
                         AppController.showToast(MainActivity.this, "please enter service completely");
 
                     }
@@ -290,18 +296,13 @@ RelativeLayout topbg;
             public void afterTextChanged(Editable s) {
 
 
-                if(s.length()>2)
-                {
-                    if(cd.isConnectingToInternet())
-
-                    {
+                if (s.length() > 2) {
+                    if (cd.isConnectingToInternet()) {
 
 
+                        if (cityid != null && spinner_autocompleCity != null) {
 
-                        if(cityid!=null&&spinner_autocompleCity!=null)
-                        {
-
-                            if(cityid.size()>0) {
+                            if (cityid.size() > 0) {
 
                                 String Location = spinner_autocompleCity.getText().toString();
                                 for (int i = 0; i < cityStringArray.length; i++) {
@@ -314,49 +315,48 @@ RelativeLayout topbg;
                         }
 
 
-                        boolean isHas=false;
+                        boolean isHas = false;
 
-                        for (int i = 0; i <servicesaStrings.size() ; i++) {
+                        for (int i = 0; i < servicesaStrings.size(); i++) {
 
-                            if(servicesaStrings.get(i).equalsIgnoreCase(actv.getText().toString())){
-                                isHas=true;
+                            if (servicesaStrings.get(i).equalsIgnoreCase(actv.getText().toString())) {
+                                isHas = true;
                             }
 
                         }
-                        if(!isHas){
+                        if (!isHas) {
                             ServiceListOnCityAndCategory(s.toString());
-                        }else {
+                        } else {
 
                         }
-
 
 
                         // ;
 
-                    }else {
-                        AppController.popErrorMsg("Alert!", "please check internet connection",MainActivity.this);
+                    } else {
+                        AppController.popErrorMsg("Alert!", "please check internet connection", MainActivity.this);
 
                     }
                 }
 
-                if(s.toString().equalsIgnoreCase("parcel service")){
-                    RelativeLayout  topbg=(RelativeLayout) findViewById(R.id.topbg) ;
+                if (s.toString().equalsIgnoreCase("parcel service")) {
+                    RelativeLayout topbg = (RelativeLayout) findViewById(R.id.topbg);
 
                     topbg.setVisibility(View.GONE);
 
-                    String  SearchText="Parcel Service";
-                    String  Location="";
+                    String SearchText = "Parcel Service";
+                    String Location = "";
 
 
-                    Location=spinner_autocompleCity.getText().toString();
+                    Location = spinner_autocompleCity.getText().toString();
 
 
-                    Bundle bundle=new Bundle();
-                    bundle.putString("Location",Location);
-                    bundle.putString("SearchText",SearchText);
-                    bundle.putInt("spinnerId",0);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("Location", Location);
+                    bundle.putString("SearchText", SearchText);
+                    bundle.putInt("spinnerId", 0);
 
-                    SearchParcelServiceFragment searchListFragment=new SearchParcelServiceFragment();
+                    SearchParcelServiceFragment searchListFragment = new SearchParcelServiceFragment();
                     searchListFragment.setArguments(bundle);
 
                     actv.setThreshold(2);
@@ -374,18 +374,18 @@ RelativeLayout topbg;
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setHomeAsUpIndicator(R.drawable.menu_icon);
-      actionBar.setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#FFFFFF\">" +"Tpnagar" + "</font>")));
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#FFFFFF\">" + "Tpnagar" + "</font>")));
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
 
-        Menu menu =navigationView.getMenu();
+        Menu menu = navigationView.getMenu();
 
         //if(prefs.getString("Company_Type_Id", "").equalsIgnoreCase("1")){
-            //menu.getItem(4).setVisible(false);
-       // }
+        //menu.getItem(4).setVisible(false);
+        // }
 
 
 
@@ -409,20 +409,20 @@ RelativeLayout topbg;
                 menuItem.setChecked(true);
                 mDrawerLayout.closeDrawers();
 
-                 RelativeLayout notification_icon=findViewById(R.id.rel_noti);
+                RelativeLayout notification_icon = findViewById(R.id.rel_noti);
 
-                 TextView count=findViewById(R.id.count);
+                TextView count = findViewById(R.id.count);
                 BaseContainerFragment fragment = null;
                 switch (menuItem.getTitle().toString()) {
                     case "Dashboard":
 
-                        if(prefs.getString("Login_Id","").length()>0){
+                        if (prefs.getString("Login_Id", "").length() > 0) {
                             JSONObject obj = new JSONObject();
 
                             try {
 
 
-                                obj.put("LoginId", prefs.getString("Login_Id",""));
+                                obj.put("LoginId", prefs.getString("Login_Id", ""));
 
 
                                 AppController.spinnerStart(MainActivity.this);
@@ -439,7 +439,7 @@ RelativeLayout topbg;
                         topbg.setVisibility(View.VISIBLE);
                         fragment = new MainFragment();
                         count.setVisibility(View.VISIBLE);
-                       // fragment=new AddKeyWordFragment();
+                        // fragment=new AddKeyWordFragment();
 
                         break;
 
@@ -486,7 +486,7 @@ RelativeLayout topbg;
                     case "Post Vehicle":
                         notification_icon.setVisibility(View.GONE);
                         topbg.setVisibility(View.GONE);
-                      fragment = new PostVehiclesMainFragment();
+                        fragment = new PostVehiclesMainFragment();
 
                         break;
                     case "Post Goods":
@@ -537,9 +537,6 @@ RelativeLayout topbg;
                                 dialog.dismiss();
 
 
-
-
-
                             }
                         });
 
@@ -552,21 +549,20 @@ RelativeLayout topbg;
                         break;
 
 
-
                     default:
                         break;
                 }
                 if (fragment != null) {
                     FragmentTransaction fragmentManager = getSupportFragmentManager().beginTransaction();
 
-                    fragmentManager.replace(R.id.frame_container, fragment,"item");
+                    fragmentManager.replace(R.id.frame_container, fragment, "item");
                     fragmentManager.addToBackStack("item");
                     fragmentManager.commit();
                     // update selected item and title, then close the drawer
 
                     setTitle(menuItem.getTitle());
 
-                    getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#FFFFFF\">" +menuItem.getTitle() + "</font>")));
+                    getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#FFFFFF\">" + menuItem.getTitle() + "</font>")));
 
                     mDrawerLayout.closeDrawers();
 
@@ -576,13 +572,12 @@ RelativeLayout topbg;
                 }
 
 
-
-              //  Toast.makeText(MainActivity.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
+                //  Toast.makeText(MainActivity.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
                 return true;
             }
         });
 
-        FloatingActionButton fab = (FloatingActionButton)findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -595,25 +590,25 @@ RelativeLayout topbg;
             }
         });
 
-     //   DesignDemoPagerAdapter adapter = new DesignDemoPagerAdapter(getSupportFragmentManager());
-      //  ViewPager viewPager = (ViewPager)findViewById(R.id.viewpager);
-      //  viewPager.setAdapter(adapter);
-      //  TabLayout tabLayout = (TabLayout)findViewById(R.id.tablayout);
-     //   tabLayout.setupWithViewPager(viewPager);
+        //   DesignDemoPagerAdapter adapter = new DesignDemoPagerAdapter(getSupportFragmentManager());
+        //  ViewPager viewPager = (ViewPager)findViewById(R.id.viewpager);
+        //  viewPager.setAdapter(adapter);
+        //  TabLayout tabLayout = (TabLayout)findViewById(R.id.tablayout);
+        //   tabLayout.setupWithViewPager(viewPager);
 
-        if (getIntent().getStringExtra("ISNotification")==null){
+        if (getIntent().getStringExtra("ISNotification") == null) {
 
 
             FragmentTransaction fragmentManager = getSupportFragmentManager().beginTransaction();
 
-            fragmentManager.replace(R.id.frame_container, new MainFragment(),"item");
+            fragmentManager.replace(R.id.frame_container, new MainFragment(), "item");
             fragmentManager.addToBackStack("item");
             fragmentManager.commit();
 
-        }else {
+        } else {
             FragmentTransaction fragmentManager = getSupportFragmentManager().beginTransaction();
 
-            fragmentManager.replace(R.id.frame_container, new NotificationCompanyListFragment(),"item");
+            fragmentManager.replace(R.id.frame_container, new NotificationCompanyListFragment(), "item");
             fragmentManager.addToBackStack("item");
             fragmentManager.commit();
 
@@ -680,11 +675,9 @@ RelativeLayout topbg;
     }
 
 
-
-
     private void loggedInUserInfoRequestCompanyType(JSONObject params) {
 
-        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST, Const.URL_LoggedInUserInfo+prefs.getString("Login_Id","1"),
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST, Const.URL_LoggedInUserInfo + prefs.getString("Login_Id", "1"),
                 params, newResponseRequesrtLoggedInUserInfo(), eErrorListenerRequesrtLoggedInUserInfo()) {
             @Override
             public String getBodyContentType() {
@@ -730,10 +723,7 @@ RelativeLayout topbg;
                 try {
                     String StatusValue = response.getString("StatusValue");
 
-                    if (StatusValue.equalsIgnoreCase("Success"))
-
-
-                    {
+                    if (StatusValue.equalsIgnoreCase("Success")) {
 
                        /* "Data": {
                         "Login_Id": 1,
@@ -754,51 +744,46 @@ RelativeLayout topbg;
 */
 
 
-
                         JSONObject jsonbObject = response.getJSONObject("Data");
 
 
-                        prefs.edit().putString("Company_Id",jsonbObject.getString("Company_Id")).commit();
-                        prefs.edit().putString("Role_Id",jsonbObject.getString("Role_Id")).commit();
+                        prefs.edit().putString("Company_Id", jsonbObject.getString("Company_Id")).commit();
+                        prefs.edit().putString("Role_Id", jsonbObject.getString("Role_Id")).commit();
 
-                        prefs.edit().putString("Role_Name",jsonbObject.getString("Role_Name")).commit();
-                        prefs.edit().putString("Display_Name",jsonbObject.getString("Display_Name")).commit();
-                        prefs.edit().putString("Token",jsonbObject.getString("Token")).commit();
-                        prefs.edit().putString("Status_Id",jsonbObject.getString("Status_Id")).commit();
-                        prefs.edit().putString("Status_Name",jsonbObject.getString("Status_Name")).commit();
-                        prefs.edit().putString("Broker_Search_Enabled",jsonbObject.getString("Broker_Search_Enabled")).commit();
+                        prefs.edit().putString("Role_Name", jsonbObject.getString("Role_Name")).commit();
+                        prefs.edit().putString("Display_Name", jsonbObject.getString("Display_Name")).commit();
+                        prefs.edit().putString("Token", jsonbObject.getString("Token")).commit();
+                        prefs.edit().putString("Status_Id", jsonbObject.getString("Status_Id")).commit();
+                        prefs.edit().putString("Status_Name", jsonbObject.getString("Status_Name")).commit();
+                        prefs.edit().putString("Broker_Search_Enabled", jsonbObject.getString("Broker_Search_Enabled")).commit();
 
-                        prefs.edit().putString("UnReadMsg",""+jsonbObject.getInt("UnReadMsg")).commit();
+                        prefs.edit().putString("UnReadMsg", "" + jsonbObject.getInt("UnReadMsg")).commit();
 
 //new work
 
-                        prefs.edit().putString("CanAddBranch",jsonbObject.getString("CanAddBranch")).commit();
+                        prefs.edit().putString("CanAddBranch", jsonbObject.getString("CanAddBranch")).commit();
 
-                        prefs.edit().putString("CanDeleteBranch",jsonbObject.getString("CanDeleteBranch")).commit();
+                        prefs.edit().putString("CanDeleteBranch", jsonbObject.getString("CanDeleteBranch")).commit();
 
-                        prefs.edit().putString("CanEditBranch",jsonbObject.getString("CanEditBranch")).commit();
-
-
-
+                        prefs.edit().putString("CanEditBranch", jsonbObject.getString("CanEditBranch")).commit();
 
 
                         int badgeCount = jsonbObject.getInt("UnReadMsg");
                         ShortcutBadger.applyCount(MainActivity.this, badgeCount);
 
 
+                        prefs.edit().putBoolean("NotificationOnOff", jsonbObject.getBoolean("NotificationOnOff")).commit();
 
-                        prefs.edit().putBoolean("NotificationOnOff",jsonbObject.getBoolean("NotificationOnOff")).commit();
+                        RelativeLayout notification_icon = findViewById(R.id.rel_noti);
 
-                        RelativeLayout notification_icon=findViewById(R.id.rel_noti);
+                        TextView count = findViewById(R.id.count);
 
-                        TextView count=findViewById(R.id.count);
-
-                        count.setText(""+badgeCount);
+                        count.setText("" + badgeCount);
 
 
                         JSONObject obj = new JSONObject();
                         try {
-                            obj.put("LoginId", prefs.getString("Login_Id",""));
+                            obj.put("LoginId", prefs.getString("Login_Id", ""));
 
                             serviceGetCompanyDetailsRequestCompanyType(obj);
 
@@ -812,15 +797,16 @@ RelativeLayout topbg;
                 }
 
 
-              //  AppController.spinnerStop();
+                //  AppController.spinnerStop();
 
             }
         };
         return response;
     }
+
     private void serviceGetCompanyDetailsRequestCompanyType(JSONObject params) {
 
-        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, Const.URL_GetCompanyDetails+prefs.getString("Company_Id","1"),
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, Const.URL_GetCompanyDetails + prefs.getString("Company_Id", "1"),
                 params, newResponseRequesrtGetCompanyDetails(), eErrorListenerRequesrtGetCompanyDetails()) {
             @Override
             public String getBodyContentType() {
@@ -866,46 +852,41 @@ RelativeLayout topbg;
                 try {
                     String StatusValue = response.getString("StatusValue");
 
-                    if (StatusValue.equalsIgnoreCase("Success"))
-
-
-                    {
+                    if (StatusValue.equalsIgnoreCase("Success")) {
                         JSONObject jsonbObject = response.getJSONObject("Data");
 
-                        prefs.edit().putString("Id",jsonbObject.getString("Id")).commit();
-                        prefs.edit().putString("Company_Name",jsonbObject.getString("Company_Name")).commit();
-                        prefs.edit().putString("Company_Desc",jsonbObject.getString("Company_Desc")).commit();
-                        prefs.edit().putString("Owner_Name",jsonbObject.getString("Owner_Name")).commit();
-                        prefs.edit().putString("Contact_Person",jsonbObject.getString("Contact_Person")).commit();
-                        prefs.edit().putString("Address",jsonbObject.getString("Address")).commit();
-                        prefs.edit().putString("Fax_No",jsonbObject.getString("Fax_No")).commit();
-                        prefs.edit().putString("Country_Id",jsonbObject.getString("Country_Id")).commit();
-                        prefs.edit().putString("State_Id",jsonbObject.getString("State_Id")).commit();
-                        prefs.edit().putString("City_Id",jsonbObject.getString("City_Id")).commit();
-                        prefs.edit().putString("Area_Id",jsonbObject.getString("Area_Id")).commit();
-                        prefs.edit().putString("Website",jsonbObject.getString("Website")).commit();
-                        prefs.edit().putString("Pin_Code",jsonbObject.getString("Pin_Code")).commit();
-                        prefs.edit().putString("Logo",jsonbObject.getString("Logo")).commit();
-                      //  prefs.edit().putString("Company_Category_Id",jsonbObject.getString("Company_Category_Id")).commit();
-                        prefs.edit().putString("Company_Type_Id",jsonbObject.getString("Company_Type_Id")).commit();
-                        prefs.edit().putString("Current_Status_Id",jsonbObject.getString("Current_Status_Id")).commit();
-                        prefs.edit().putString("Mobile_No",jsonbObject.getString("Mobile_No")).commit();
-                        prefs.edit().putString("Storage_Id",jsonbObject.getString("Storage_Id")).commit();
-                        prefs.edit().putString("Phone_No",jsonbObject.getString("Phone_No")).commit();
-                        prefs.edit().putString("Email",jsonbObject.getString("Email")).commit();
+                        prefs.edit().putString("Id", jsonbObject.getString("Id")).commit();
+                        prefs.edit().putString("Company_Name", jsonbObject.getString("Company_Name")).commit();
+                        prefs.edit().putString("Company_Desc", jsonbObject.getString("Company_Desc")).commit();
+                        prefs.edit().putString("Owner_Name", jsonbObject.getString("Owner_Name")).commit();
+                        prefs.edit().putString("Contact_Person", jsonbObject.getString("Contact_Person")).commit();
+                        prefs.edit().putString("Address", jsonbObject.getString("Address")).commit();
+                        prefs.edit().putString("Fax_No", jsonbObject.getString("Fax_No")).commit();
+                        prefs.edit().putString("Country_Id", jsonbObject.getString("Country_Id")).commit();
+                        prefs.edit().putString("State_Id", jsonbObject.getString("State_Id")).commit();
+                        prefs.edit().putString("City_Id", jsonbObject.getString("City_Id")).commit();
+                        prefs.edit().putString("Area_Id", jsonbObject.getString("Area_Id")).commit();
+                        prefs.edit().putString("Website", jsonbObject.getString("Website")).commit();
+                        prefs.edit().putString("Pin_Code", jsonbObject.getString("Pin_Code")).commit();
+                        prefs.edit().putString("Logo", jsonbObject.getString("Logo")).commit();
+                        //  prefs.edit().putString("Company_Category_Id",jsonbObject.getString("Company_Category_Id")).commit();
+                        prefs.edit().putString("Company_Type_Id", jsonbObject.getString("Company_Type_Id")).commit();
+                        prefs.edit().putString("Current_Status_Id", jsonbObject.getString("Current_Status_Id")).commit();
+                        prefs.edit().putString("Mobile_No", jsonbObject.getString("Mobile_No")).commit();
+                        prefs.edit().putString("Storage_Id", jsonbObject.getString("Storage_Id")).commit();
+                        prefs.edit().putString("Phone_No", jsonbObject.getString("Phone_No")).commit();
+                        prefs.edit().putString("Email", jsonbObject.getString("Email")).commit();
 
-                        prefs.edit().putString("City_Name",jsonbObject.getString("City_Name")).commit();
-                        prefs.edit().putString("State_Name",jsonbObject.getString("State_Name")).commit();
-
-
+                        prefs.edit().putString("City_Name", jsonbObject.getString("City_Name")).commit();
+                        prefs.edit().putString("State_Name", jsonbObject.getString("State_Name")).commit();
 
 
-                        TextView  txtemail=(TextView) findViewById(R.id.txtemail) ;
-                        TextView phone1=(TextView) findViewById(R.id.Phone) ;
-                        TextView comp_name=(TextView) findViewById(R.id.comp_name) ;
+                        TextView txtemail = (TextView) findViewById(R.id.txtemail);
+                        TextView phone1 = (TextView) findViewById(R.id.Phone);
+                        TextView comp_name = (TextView) findViewById(R.id.comp_name);
 
                         txtemail.setText(jsonbObject.getString("Email"));
-                        comp_name.setText(prefs.getString("Company_Name",""));
+                        comp_name.setText(prefs.getString("Company_Name", ""));
 
 
                     }
@@ -923,7 +904,7 @@ RelativeLayout topbg;
 
     private void serviceGetDBTabsRequestCompanyType(JSONObject params) {
 
-        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, Const.URL_GetDBTabs+prefs.getString("Login_Id","1"),
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, Const.URL_GetDBTabs + prefs.getString("Login_Id", "1"),
                 params, newResponseRequesrtGetDBTabs(), eErrorListenerRequesrtGetDBTabs()) {
             @Override
             public String getBodyContentType() {
@@ -968,15 +949,14 @@ RelativeLayout topbg;
                 try {
                     String StatusValue = response.getString("StatusValue");
 
-                    if (StatusValue.equalsIgnoreCase("Success"))
-                    {
+                    if (StatusValue.equalsIgnoreCase("Success")) {
                         JSONArray jsonbArray = response.getJSONArray("Data");
 
                         for (int i = 0; i < jsonbArray.length(); i++) {
                             DBTabsWrapper dBTabsWrapper = new DBTabsWrapper();
                             JSONObject obj = jsonbArray.getJSONObject(i);
                             dBTabsWrapper.setID(obj.getString("ID"));
-                             dBTabsWrapper.setActivityId(obj.getString("ActivityId"));
+                            dBTabsWrapper.setActivityId(obj.getString("ActivityId"));
                             dBTabsWrapper.setTab_Desc(obj.getString("Tab_Desc"));
                             dBTabsWrapper.setTarget_URL(obj.getString("Target_URL"));
 
@@ -1002,7 +982,7 @@ RelativeLayout topbg;
         //JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, Const.URL_MainFORAll+"service/ContractorServices/0",
 
 
-                JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, Const.URL_ServiceListOnCityAndCategoryNew+cityidForLoc+"/1",
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, Const.URL_ServiceListOnCityAndCategoryNew + cityidForLoc + "/1",
                 params, newResponseRequesrtservice(), eErrorListenerRequesrtservice()) {
             @Override
             public String getBodyContentType() {
@@ -1058,9 +1038,9 @@ RelativeLayout topbg;
                             GetComapnyServiceWrapper getComapnyServiceWrapper = new GetComapnyServiceWrapper();
                             JSONObject obj = jsonArray.getJSONObject(i);
                             getComapnyServiceWrapper.setService_Name(obj.getString("Service_Name"));
-                           // getComapnyServiceWrapper.setId(obj.getString("Id"));
-                           // getComapnyServiceWrapper.setHas_Destination(""+obj.getBoolean("Has_Destination"));
-                          //  getComapnyServiceWrapper.setService_Type(obj.getString("Service_Type"));
+                            // getComapnyServiceWrapper.setId(obj.getString("Id"));
+                            // getComapnyServiceWrapper.setHas_Destination(""+obj.getBoolean("Has_Destination"));
+                            //  getComapnyServiceWrapper.setService_Type(obj.getString("Service_Type"));
 
                             // arrayList1.add(obj.getString("City_Name"));
                             // arrayListBoolean.add(false);
@@ -1071,11 +1051,11 @@ RelativeLayout topbg;
                             getComapnyServiceWrapperlist.add(getComapnyServiceWrapper);
 
                         }
-                        if (servicesaStrings != null ) {
+                        if (servicesaStrings != null) {
                             services = servicesaStrings.toArray(new String[0]);
                         }
 
-                        serviceItem =arrayList1.toArray(new CharSequence[arrayList1.size()]);
+                        serviceItem = arrayList1.toArray(new CharSequence[arrayList1.size()]);
 
                         DataManager.getInstance().setServiceItem(serviceItem);
                        /* ArrayAdapter<String> adapter = new ArrayAdapter<String>
@@ -1093,6 +1073,7 @@ RelativeLayout topbg;
         };
         return response;
     }
+
     private void showListService() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 
@@ -1101,26 +1082,26 @@ RelativeLayout topbg;
         builder.setItems(serviceItem,
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int item) {
-                        if(serviceItem[item].toString().equalsIgnoreCase("parcel service")){
-                            RelativeLayout  topbg=(RelativeLayout) findViewById(R.id.topbg) ;
+                        if (serviceItem[item].toString().equalsIgnoreCase("parcel service")) {
+                            RelativeLayout topbg = (RelativeLayout) findViewById(R.id.topbg);
 
                             topbg.setVisibility(View.GONE);
 
-                            String  SearchText="Parcel Service";
-                            String  Location="";
-                            Bundle bundle=new Bundle();
-                            bundle.putString("Location",Location);
-                            bundle.putString("SearchText",SearchText);
-                            bundle.putInt("spinnerId",0);
+                            String SearchText = "Parcel Service";
+                            String Location = "";
+                            Bundle bundle = new Bundle();
+                            bundle.putString("Location", Location);
+                            bundle.putString("SearchText", SearchText);
+                            bundle.putInt("spinnerId", 0);
 
-                            SearchParcelServiceFragment searchListFragment=new SearchParcelServiceFragment();
+                            SearchParcelServiceFragment searchListFragment = new SearchParcelServiceFragment();
                             searchListFragment.setArguments(bundle);
 
                             actv.setThreshold(2);
                             actv.setText("");
                             actv.dismissDropDown();
                             replaceFragmentTask(searchListFragment);
-                        }else {
+                        } else {
                             actv.setText(serviceItem[item]);
                         }
 
@@ -1145,7 +1126,7 @@ RelativeLayout topbg;
 
     }
 
-    void ServiceListOnCityAndCategory(String editText){
+    void ServiceListOnCityAndCategory(String editText) {
 
         JSONObject obj = new JSONObject();
         try {
@@ -1153,10 +1134,10 @@ RelativeLayout topbg;
             obj.put("Location", cityidForLoc);
             //  AppController.spinnerStart(getActivity());
 
-            Log.e("this is obj:::",obj.toString());
+            Log.e("this is obj:::", obj.toString());
 
 
-            ServiceListOnCityAndCategoryRequest(obj,editText);
+            ServiceListOnCityAndCategoryRequest(obj, editText);
 
 
         } catch (JSONException e) {
@@ -1164,7 +1145,7 @@ RelativeLayout topbg;
         }
     }
 
-    private void ServiceListOnCityAndCategoryRequest(JSONObject params,String editText) {
+    private void ServiceListOnCityAndCategoryRequest(JSONObject params, String editText) {
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST, Const.URL_SearchData,
                 params, newFromCityResponseRequesr(), eErrorListenerRequesr()) {
@@ -1191,7 +1172,7 @@ RelativeLayout topbg;
 
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.e("this is error",error.toString());
+                Log.e("this is error", error.toString());
 
 
                 AppController.spinnerStop();
@@ -1225,7 +1206,7 @@ RelativeLayout topbg;
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                if (servicesaStrings != null ) {
+                if (servicesaStrings != null) {
                     services = servicesaStrings.toArray(new String[servicesaStrings.size()]);
 
 
@@ -1233,7 +1214,7 @@ RelativeLayout topbg;
 
                 AppController.spinnerStop();
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>
-                        (MainActivity.this,R.layout.custom_text,services);
+                        (MainActivity.this, R.layout.custom_text, services);
                 actv.setAdapter(adapter);
 
 
@@ -1250,7 +1231,8 @@ RelativeLayout topbg;
         };
         return response;
     }
-    void RandomCityList(){
+
+    void RandomCityList() {
 
         JSONObject obj1 = new JSONObject();
 
@@ -1259,7 +1241,7 @@ RelativeLayout topbg;
             obj1.put("Password", "prem$123");
             AppController.spinnerStart(this);
 
-            Log.e("this is obj:::",obj1.toString());
+            Log.e("this is obj:::", obj1.toString());
 
 
             RandomCityListRequest(obj1);
@@ -1297,7 +1279,7 @@ RelativeLayout topbg;
 
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.e("this is error",error.toString());
+                Log.e("this is error", error.toString());
 
 
                 AppController.spinnerStop();
@@ -1312,13 +1294,12 @@ RelativeLayout topbg;
             @Override
             public void onResponse(JSONObject response) {
 
-                Log.e("response RandomCityList",response.toString());
+                Log.e("response RandomCityList", response.toString());
 
-                try{
-                    String StatusValue=response.getString("StatusValue");
+                try {
+                    String StatusValue = response.getString("StatusValue");
 
-                    if(StatusValue.equalsIgnoreCase("Success"))
-                    {
+                    if (StatusValue.equalsIgnoreCase("Success")) {
                         JSONArray jsonArray = response.getJSONArray("Data");
                         for (int i = 0; i < jsonArray.length(); i++) {
 
@@ -1327,8 +1308,8 @@ RelativeLayout topbg;
                             city.add(obj.getString("City_Name"));
                             cityid.add(obj.getString("Id"));
 
-                            if(i==0){
-                                cityidForLoc=obj.getString("Id");
+                            if (i == 0) {
+                                cityidForLoc = obj.getString("Id");
                             }
                             DataManager.getInstance().setCity(city);
 
@@ -1340,13 +1321,13 @@ RelativeLayout topbg;
                     e.printStackTrace();
                 }
 
-                cityItem=city.toArray(new CharSequence[city.size()]);
-                cityStringArray =city.toArray(new String[city.size()]);
+                cityItem = city.toArray(new CharSequence[city.size()]);
+                cityStringArray = city.toArray(new String[city.size()]);
 
                 cityidForLoc = cityid.get(0);
 
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>
-                        (MainActivity.this,R.layout.custom_text,cityStringArray);
+                        (MainActivity.this, R.layout.custom_text, cityStringArray);
                 spinner_autocompleCity.setAdapter(adapter);
 
 
@@ -1356,6 +1337,7 @@ RelativeLayout topbg;
         };
         return response;
     }
+
     private void replaceFragmentTask(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
       /*  transaction.setCustomAnimations(
@@ -1372,14 +1354,15 @@ RelativeLayout topbg;
         super.onBackPressed();
 
         Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.frame_container);
-        Log.e("Prem PP", "find the current fragment" +currentFragment.getClass().getSimpleName());
-        if(currentFragment.getClass().getSimpleName().equalsIgnoreCase("BrokarMainPaggerFragment") ){
+        Log.e("Prem PP", "find the current fragment" + currentFragment.getClass().getSimpleName());
+        if (currentFragment.getClass().getSimpleName().equalsIgnoreCase("BrokarMainPaggerFragment")) {
             onBackPressed();
-           // onBackPressed();
-        }else if(currentFragment.getClass().getSimpleName().equalsIgnoreCase("BrokarMainPaggerFragment")){
+            // onBackPressed();
+        } else if (currentFragment.getClass().getSimpleName().equalsIgnoreCase("BrokarMainPaggerFragment")) {
 
         }
     }
+
     private void showListCity() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 
@@ -1411,7 +1394,6 @@ RelativeLayout topbg;
                         }
 
 
-
                     }
                 });
         builder.create();
@@ -1423,28 +1405,36 @@ RelativeLayout topbg;
     @Override
     protected void onPause() {
         super.onPause();
-        unregisterReceiver(myReceiver);
+        // unregisterReceiver(myReceiver);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        notification1 = new IntentFilter();
+        /*
+
+        App Crash in VIVO when below register receiver is triggered..
+        *Caused by java.lang.SecurityException
+        * callerPackage:com.tpnagar,action:{com.therapy.mymind.USER_ACTION}:
+        * One of RECEIVER_EXPORTED or RECEIVER_NOT_EXPORTED should be specified
+        * when a receiver isn't being registered exclusively for system broadcasts
+        * */
+    /*    notification1 = new IntentFilter();
         notification1.addAction("com.therapy.mymind.USER_ACTION");
         myReceiver = new MyReceiver();
 
 
         registerReceiver(myReceiver,
-                notification1);
+                notification1);*/
 
         prefs = getSharedPreferences("com.tpnagar", MODE_PRIVATE);
-        if(prefs.getString("Login_Id","").length()>0){
+        if (prefs.getString("Login_Id", "").length() > 0) {
             JSONObject obj = new JSONObject();
 
             try {
 
 
-                obj.put("LoginId", prefs.getString("Login_Id",""));
+                obj.put("LoginId", prefs.getString("Login_Id", ""));
 
 
                 AppController.spinnerStart(this);
@@ -1456,7 +1446,7 @@ RelativeLayout topbg;
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-        }else {
+        } else {
 
         }
     }

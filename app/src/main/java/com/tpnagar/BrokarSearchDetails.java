@@ -88,7 +88,11 @@ public class BrokarSearchDetails extends FragmentActivity implements AdapterView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.brokers_search_details);
-
+        try {
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
+                    WindowManager.LayoutParams.FLAG_SECURE);
+        } catch (Exception e) {
+        }
         ImageView back=findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
