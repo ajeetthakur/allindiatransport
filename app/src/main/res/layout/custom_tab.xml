@@ -24,7 +24,7 @@
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:text="GOODS AVAILABLE"
-            android:textColor="@color/black"
+            android:textColor="#d31f0f"
             android:textSize="10sp"
             android:textStyle="bold" />
         <TextView
@@ -57,7 +57,7 @@
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:text="BROKER"
-            android:textColor="@color/black"
+            android:textColor="#d31f0f"
             android:textSize="12sp"
 
             android:textStyle="bold" />
@@ -91,7 +91,7 @@
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:text="VEHICLES AVAILABLE"
-            android:textColor="@color/black"
+            android:textColor="#d31f0f"
             android:textSize="10sp"
             android:textStyle="bold" />
         <TextView

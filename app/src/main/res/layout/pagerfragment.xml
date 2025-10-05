@@ -19,6 +19,7 @@
             android:background="#eeebeb"
             app:tabSelectedTextColor="#d31f0f"
             app:tabTextColor="#000000"
+            app:tabIndicatorHeight="6dp"
             app:tabGravity="fill"/>
     </com.google.android.material.appbar.AppBarLayout>
 
