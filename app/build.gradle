@@ -13,7 +13,7 @@ android {
         namespace "com.tpnagar"
         applicationId "com.tpnagar"
         minSdk 24
-        targetSdk 34
+        targetSdk 35
         versionCode 43
         versionName "4.7"
         multiDexEnabled=true
