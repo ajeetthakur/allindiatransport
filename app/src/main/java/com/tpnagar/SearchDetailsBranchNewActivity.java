@@ -90,11 +90,7 @@ public class SearchDetailsBranchNewActivity extends FragmentActivity implements 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.brokers_search_details);
-        try {
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
-                    WindowManager.LayoutParams.FLAG_SECURE);
-        } catch (Exception e) {
-        }
+       
         id=getIntent().getIntExtra("id",0);
         searchCompanyWrapper= DataManager.getInstance().getBranchWrapperlist().get(id);
 

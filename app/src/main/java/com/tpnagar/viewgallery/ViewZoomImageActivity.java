@@ -21,11 +21,7 @@ public class ViewZoomImageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.zoom_fragment);
-        try {
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
-                    WindowManager.LayoutParams.FLAG_SECURE);
-        } catch (Exception e) {
-        }
+       
         touchImageView=(TouchImageView) findViewById(R.id.touch_imv);
         Url=getIntent().getStringExtra("Url");
 

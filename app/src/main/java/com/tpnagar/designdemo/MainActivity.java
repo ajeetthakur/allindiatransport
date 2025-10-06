@@ -101,11 +101,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_final);
-      try {
-          getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
-                  WindowManager.LayoutParams.FLAG_SECURE);
-      } catch (Exception e) {
-      }
 
         cd = new ConnectionDetector(this);
 

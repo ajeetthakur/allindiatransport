@@ -41,11 +41,7 @@ public class ImageAttachmentProfileActivity extends Activity implements Imageuti
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_attachment);
-        try {
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
-                    WindowManager.LayoutParams.FLAG_SECURE);
-        } catch (Exception e) {
-        }
+       
         imageutils = new Imageutils(this);
         textview_save = (TextView) findViewById(R.id.textview_send);
         iv_attachment = (ImageView) findViewById(R.id.imageView);

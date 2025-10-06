@@ -88,11 +88,7 @@ public class MainActivityWithoutLogin extends AppCompatActivity implements Adapt
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_witoutlogin);
-        try {
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
-                    WindowManager.LayoutParams.FLAG_SECURE);
-        } catch (Exception e) {
-        }
+       
         cd=new ConnectionDetector(this);
         RelativeLayout   topbg11=(RelativeLayout) findViewById(topbg) ;
 

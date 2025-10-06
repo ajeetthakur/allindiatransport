@@ -25,11 +25,7 @@ public class LandingActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.landing);
-        try {
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
-                    WindowManager.LayoutParams.FLAG_SECURE);
-        } catch (Exception e) {
-        }
+       
         prefs = getSharedPreferences("com.tpnagar", MODE_PRIVATE);
         text1=(TextView) findViewById(R.id.text1);
         text2=(TextView) findViewById(R.id.text2);
